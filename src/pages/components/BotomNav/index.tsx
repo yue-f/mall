@@ -3,7 +3,8 @@
  * created by yue on 2020.12.22
  */
 import React, { Component } from 'react'
-
+import {TabBar} from 'antd-mobile';
+import {history} from 'umi';
 const menu = [
   {
     title: '首页',
@@ -13,12 +14,12 @@ const menu = [
   {
     title: '购物车',
     link: '/cart',
-    icon: '3',
+    icon: 'gouwuche',
   },
   {
     title: '订单列表',
     link: '/olist',
-    icon: 'icon-',
+    icon: 'dingdanliebiao',
   },
   {
     title: '用户',
@@ -29,9 +30,21 @@ const menu = [
 export default class BottomNav extends Component {
   render() {
     return (
-      <div>
-        <h3>BottomNav</h3>
-      </div>
+      <TabBar>
+        {
+          menu.map(({title, link, icon}) => (
+            <TabBar.Item 
+              key={link}
+              title={title}
+              icon={<span className={'iconfont icon-' + icon}></span>}
+              onPress={() => {
+                history.push(link)
+              }}
+            />
+          ))
+        }
+
+      </TabBar>
     )
   }
 }

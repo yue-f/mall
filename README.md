@@ -22,11 +22,15 @@ $ yarn start
 - 安装库： npm install antd-mobile --save
 - 启动项目：yarn start
 - 建立初步页面：
+
 使用umi创建文件：
 例如：创建购物车cart （包含：.tsx, .less）
-`umi g page cart/index --typescript --less`
+```
+umi g page cart/index --typescript --less
+```
 - 添加路由(.umirc.ts)
-`routes: [
+```
+routes: [
     { path: '/', component: '@/pages/index' },
     // 购物车
     { path: '/cart', component: '@/pages/cart/index' },
@@ -36,10 +40,11 @@ $ yarn start
     { path: '/user', component: '@/pages/user/index' },
     // 登录页
     { path: '/login', component: '@/pages/login/index' },
-  ],`
+  ],
+  ```
 - 创建basiclayout模板公用底部导航栏
   添加layouts文件夹，创建BasicLayout.tsx文件, 再.umirc.ts配置子路由
-  `
+  ```
     routes: [
     { path: '/', 
       component: '@/pages/layouts/BasicLayout', 
@@ -53,7 +58,7 @@ $ yarn start
       ],
     },
   ],
-  `
+  ```
 - 创建底部导航栏BottomNav
 - 下载icon(iconfont)选择图标添加购物车 -> 添加代码 -> 放到static文件夹内
   在basicLayout文件夹中引入iconfont.css开始使用
