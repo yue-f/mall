@@ -19,7 +19,7 @@ $ yarn start
 - 创建项目：yarn create @umijs/umi-app
 - 全局安装umi: yarn global add umi
 - 安装依赖： yarn
-- 安装库： npm install antd-mobile --save
+- 安装库： npm install antd-mobile mockjs --save
 - 启动项目：yarn start
 - 建立初步页面：
 
