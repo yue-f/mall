@@ -24,6 +24,8 @@
     "@umijs/preset-react": "1.x",
     "antd-mobile": "^2.3.4",
     "mockjs": "^1.1.0",
+    "rc-form": "^2.4.11",
+    "postcss-px-to-viewport": "^1.1.1",
     "umi": "^3.3.3"
   },
   "devDependencies": {

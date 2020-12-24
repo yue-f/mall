@@ -5,17 +5,53 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  // 全局配置项
+  theme: {
+    'primary-color': 'red',
+    'brand-primary': 'red',
+    'brand-primary-tap': 'red',
+    'border-color-base': '#ddd',
+  },
+
+  extraPostCSSPlugins: [
+    // 使用postcss-px-to-viewport 这个插件，做移动端的配置
+    require('postcss-px-to-viewport')({
+      unitToConver: 'px', // 需要转换的单位，默认是px
+      viewportWidth: 750, // 视窗的宽度，对应的是我们设计稿的宽度
+      viewportHeight: 1334, // 视窗的高度，根据375设备的宽度来指定，一般指定778，也可以不配置
+      unitPrecision: 3, // 指定px 转换为视窗单位的小数（很多时候无法整除）
+      porpList: ['*'], // 能转化为vw的属性列表
+      viewportUnit: 'vw', // 指定需要转换成的视窗单位，建议使用vw
+      fontViewportUnit: 'vw', // 字体使用的视口单位
+      selectorBlackList: ['.ignore-', '.hairlines', 'am-', 'px-'], // 指定不转换为视窗单位的类，可以自定义，可以无限添加，建议定义一至两个通用的类名
+      minPixelValue: 1, // 小于或的等于`1px`不能转换视窗单位，也可以设置为你想要的值
+      mediaQuery: false, // 允许在媒体查询中转换 `px`
+      replace: true, // 是否直接更换属性值，而不添加备用属性
+      exclued: [/\/Stores\/.*.less/, /global.css/, /node-modules/], //忽略某些文件夹下的文件或特定文件，例如‘node_modules’下的文件
+      landscape: false, // 是否根据landscaoeWidth 生成媒体查询条件@media(orientationL landscape)
+      landscapeUnit: 'vw', // 横屏时使用的单位
+      landscapeWidth: 1134, // 横屏时使用的视口宽度
+    }),
+  ],
   // 添加路由
   routes: [
-    { path: '/', 
-      component: '@/pages/layouts/BasicLayout', 
+    {
+      path: '/',
+      component: '@/pages/layouts/BasicLayout',
       routes: [
         // 配置子路由
         { path: '/', component: '@/pages/index' },
-        { path: '/cart', component: '@/pages/cart/index' },
-        { path: '/olist', component: '@/pages/olist/index' },
-        { path: '/user', component: '@/pages/user/index' },
         { path: '/login', component: '@/pages/login/index' },
+        {
+          path: '/',
+          component: '@/pages/layouts/SecurityLayout',
+          routes: [
+            // 配置路由守卫的子路由，必须登录才可查看
+            { path: '/cart', component: '@/pages/cart/index' },
+            { path: '/olist', component: '@/pages/olist/index' },
+            { path: '/user', component: '@/pages/user/index' },
+          ],
+        },
       ],
     },
   ],
