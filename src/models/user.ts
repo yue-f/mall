@@ -1,6 +1,7 @@
 /**
  * 处理数据层
  */
+import { fakeAccountLogin } from '@/services/login';
 import { queryCurrent } from '@/services/user';
 import { Effect, Reducer } from 'umi';
 
@@ -18,6 +19,7 @@ export interface UserModelType {
   state: UserModelState;
   effects: {
     fetchCurrent: Effect;
+    login: Effect;
   };
   reducers: {
     saveCurrentUser: Reducer<UserModelState>;
@@ -36,6 +38,15 @@ const UserModel: UserModelType = {
     *fetchCurrent(_, { call, put }) {
       // 获取异步请求
       const response = yield call(queryCurrent);
+
+      yield put({ type: 'saveCurrentUser', payload: response });
+    },
+    *login({ payload }, { call, put }) {
+      // 获取异步请求
+      const response = yield call(fakeAccountLogin, payload);
+      if (response.status === 1) {
+      } else {
+      }
 
       yield put({ type: 'saveCurrentUser', payload: response });
     },

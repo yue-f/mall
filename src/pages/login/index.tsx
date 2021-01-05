@@ -17,6 +17,10 @@ const Login: React.FC<LoginProps> = ({ user, location }) => {
     return <Redirect to={from} />;
   }
 
+  const handleSubmit = () => {
+    // dispatch login
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.logo}></div>
