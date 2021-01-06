@@ -16,7 +16,6 @@ interface BasicLayoutProps {
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // 利用组件复合方式
   const { children, location, dispatch, user } = props;
-  console.log('props', props);
   useEffect(() => {
     // 获取用户基本信息，和modal进行数据交互
     dispatch({
