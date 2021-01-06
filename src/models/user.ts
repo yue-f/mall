@@ -3,6 +3,7 @@
  */
 import { fakeAccountLogin } from '@/services/login';
 import { queryCurrent } from '@/services/user';
+import { Toast } from 'antd-mobile';
 import { Effect, Reducer } from 'umi';
 
 // 定义数据类型
@@ -45,10 +46,10 @@ const UserModel: UserModelType = {
       // 获取异步请求
       const response = yield call(fakeAccountLogin, payload);
       if (response.status === 1) {
+        yield put({ type: 'saveCurrentUser', payload: response });
       } else {
+        Toast.fail(response.msg || '系统开小差，请稍后重试~');
       }
-
-      yield put({ type: 'saveCurrentUser', payload: response });
     },
   },
   reducers: {
