@@ -6,9 +6,10 @@ export default {
   'GET /api/getUserDetail': {
     status: 1,
     id: '001',
-    name: '莎士比亚',
-    icon: 'https://tva1.sinaimg.cn/large/00831rSTly1gdm7eok2oij301s01sgli.jpg',
-    email: 'shakespeare@kkb.com',
+    name: '打盹儿的妖精',
+    icon:
+      'https://upload.jianshu.io/users/upload_avatars/10953087/6e0d6bbc-fa5c-46ff-bfcc-70d66e91ad3c.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp',
+    email: 'xiaoyueyuevip@163.com',
     signature: 'hello world',
     title: '买买买',
     tags: [
@@ -26,7 +27,7 @@ export default {
       },
     ],
     country: 'China',
-    address: '开课吧总部',
+    address: '地球村',
     phone: '0110-20204123',
   },
 };

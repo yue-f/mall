@@ -3,19 +3,26 @@ import { connect, UserModelState } from 'umi';
 import { ConnectProps, ConnectState } from '@/models/connect';
 
 import styles from './index.less';
+import Header from './Header';
+import MyList from './myList';
+import Logout from './logout';
 
 interface UserProos extends ConnectProps {
   user: UserModelState;
 }
 
-const User: React.FC<UserProos> = ({ dispatch }) => {
+const User: React.FC<UserProos> = ({ dispatch, user }) => {
   useEffect(() => {
+    // 获取用户的基本信息
     dispatch({ type: 'user/queryDetail' });
   }, []);
-  // 获取用户的基本信息
+
+  const { name, icon } = user.detail;
   return (
     <div>
-      <h1 className={styles.title}>Page user/index</h1>
+      <Header name={name} icon={icon} />
+      <MyList />
+      <Logout logout={logout} />
     </div>
   );
 };

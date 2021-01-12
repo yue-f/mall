@@ -14,7 +14,10 @@ interface CurrentUser {
 }
 
 // detail 的数据类型
-interface DetailUser extends CurrentUser {
+interface DetailUser {
+  name?: string;
+  icon?: string;
+  userid?: string;
   email: string;
   phone: string;
   address: string;
@@ -28,7 +31,12 @@ interface DetailUser extends CurrentUser {
 }
 export interface UserModelState {
   currentUser: CurrentUser;
-  detail: DetailUser | {};
+  detail:
+    | DetailUser
+    | {
+        name: string;
+        icon: string;
+      };
 }
 export interface UserModelType {
   namespace: 'user';
@@ -49,7 +57,10 @@ const UserModel: UserModelType = {
   namespace: 'user',
   state: {
     currentUser: {},
-    detail: {},
+    detail: {
+      name: '',
+      icon: '',
+    },
   },
   effects: {
     // 调用副作用

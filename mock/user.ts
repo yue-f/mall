@@ -11,8 +11,9 @@ export default {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
     status: 1,
-    name: '莎士比亚',
-    icon: 'https://tva1.sinaimg.cn/large/00831rSTly1gdm7eok2oij301s01sgli.jpg',
+    name: '打盹儿的妖精',
+    icon:
+      'https://upload.jianshu.io/users/upload_avatars/10953087/6e0d6bbc-fa5c-46ff-bfcc-70d66e91ad3c.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp',
     userid: null,
   },
   // GET POST 可省略
@@ -41,9 +42,9 @@ export default {
     if (password === '123' && name === 'aa') {
       res.send({
         status: 1,
-        name: '莎士比亚',
+        name: '打盹儿的妖精',
         icon:
-          'https://tva1.sinaimg.cn/large/00831rSTly1gdm7eok2oij301s01sgli.jpg',
+          'https://upload.jianshu.io/users/upload_avatars/10953087/6e0d6bbc-fa5c-46ff-bfcc-70d66e91ad3c.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp',
         userid: '001',
       });
     } else {
