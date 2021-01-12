@@ -1,15 +1,14 @@
 import { Button, WingBlank } from 'antd-mobile';
 import React, { FC } from 'react';
 
-interface LogoutProps {}
+interface LogoutProps {
+  logout: Function;
+}
 
-const Logout: FC<LogoutProps> = (props) => {
-  const lgout = () => {
-    console.log('lgout');
-  };
+const Logout: FC<LogoutProps> = ({ logout }) => {
   return (
     <WingBlank size="lg">
-      <Button type="primary" onClick={lgout}>
+      <Button type="primary" onClick={logout}>
         退出登录
       </Button>
     </WingBlank>

@@ -18,6 +18,8 @@ const User: React.FC<UserProos> = ({ dispatch, user }) => {
   }, []);
 
   const { name, icon } = user.detail;
+
+  const logout = () => {};
   return (
     <div>
       <Header name={name} icon={icon} />
