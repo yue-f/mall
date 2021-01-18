@@ -2,7 +2,11 @@
  * 处理数据层
  */
 import { fakeAccountLogin } from '@/services/login';
-import { queryCurrent, queryDetail } from '@/services/user';
+import {
+  fakeAccountLoginOut,
+  queryCurrent,
+  queryDetail,
+} from '@/services/user';
 import { Toast } from 'antd-mobile';
 import { Effect, Reducer } from 'umi';
 
@@ -45,9 +49,11 @@ export interface UserModelType {
     fetchCurrent: Effect;
     login: Effect;
     queryDetail: Effect;
+    logout: Effect;
   };
   reducers: {
     saveUser: Reducer<UserModelState>;
+    clearUser: Reducer<UserModelState>;
   };
 }
 
@@ -93,10 +99,24 @@ const UserModel: UserModelType = {
 
       yield put({ type: 'saveUser', payload: { detail: { ...response } } });
     },
+
+    // 退出
+    *logout(_, { call, put }) {
+      // 获取异步请求
+      const response = yield call(fakeAccountLoginOut);
+
+      yield put({
+        type: 'clearUser',
+        payload: { currentUser: {}, detail: { name: '', icon: '' } },
+      });
+    },
   },
   reducers: {
     saveUser(state, action) {
       return { ...state, ...(action.payload || {}) };
+    },
+    clearUser(state, action) {
+      return { ...action.payload };
     },
   },
 };

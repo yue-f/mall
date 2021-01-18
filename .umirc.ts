@@ -40,7 +40,7 @@ export default defineConfig({
       component: '@/pages/layouts/BasicLayout',
       routes: [
         // 配置子路由
-        { path: '/', component: '@/pages/index' },
+        { path: '/', component: '@/pages/home/index' },
         { path: '/login', component: '@/pages/login/index' },
         {
           path: '/',

@@ -8,7 +8,7 @@ interface LogoutProps {
 const Logout: FC<LogoutProps> = ({ logout }) => {
   return (
     <WingBlank size="lg">
-      <Button type="primary" onClick={logout}>
+      <Button type="primary" onClick={() => logout()}>
         退出登录
       </Button>
     </WingBlank>

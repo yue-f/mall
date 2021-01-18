@@ -9,5 +9,5 @@ export async function queryDetail(): Promise<any> {
 }
 
 export async function fakeAccountLoginOut(): Promise<any> {
-  return request('/api/getUserDetail');
+  return request('/api/logout');
 }
