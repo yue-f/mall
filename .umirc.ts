@@ -42,6 +42,7 @@ export default defineConfig({
         // 配置子路由
         { path: '/', component: '@/pages/home/index' },
         { path: '/login', component: '@/pages/login/index' },
+        { path: '/search', component: '@/pages/search/index' },
         {
           path: '/',
           component: '@/pages/layouts/SecurityLayout',
