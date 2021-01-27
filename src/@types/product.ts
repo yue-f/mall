@@ -7,3 +7,8 @@ export interface ProductType {
   imgs: string[];
   tags: string[];
 }
+
+export interface CartProductType extends ProductType {
+  count: number;
+  checked: boolean;
+}

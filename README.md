@@ -62,3 +62,9 @@ routes: [
 - 创建底部导航栏BottomNav
 - 下载icon(iconfont)选择图标添加购物车 -> 添加代码 -> 放到static文件夹内
   在basicLayout文件夹中引入iconfont.css开始使用
+
+
+命令行 创建详情页
+```
+ umi g page product/[id] --typescript --less
+```
