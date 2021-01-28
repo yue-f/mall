@@ -3,7 +3,7 @@ import React, { FC, useCallback } from 'react';
 import { ConnectState, ConnectProps, CartModelState } from '@/models/connect';
 import styles from './index.less';
 import classnames from 'classnames';
-import { history, Link } from 'umi';
+import { history, Link, connect } from 'umi';
 import { Toast } from 'antd-mobile';
 import { editCart } from '@/services/editCart';
 
@@ -50,4 +50,4 @@ const CartAndBuy: FC<CartAndBuyProps> = ({ product, dispatch }) => {
   );
 };
 
-export default CartAndBuy;
+export default connect(({ cart }: ConnectState) => ({ cart }))(CartAndBuy);
