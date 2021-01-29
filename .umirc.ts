@@ -1,10 +1,15 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  title: '商城demo',
   // 设置为none后，node_modules下的文件不走babel编译，减少编译时间
   nodeModulesTransform: {
     type: 'none',
   },
+  // 使用hash 路由
+  history: { type: 'hash' },
+  // 添加前缀
+  base: 'demo',
   // 全局配置项
   theme: {
     'primary-color': 'red',

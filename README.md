@@ -68,3 +68,8 @@ routes: [
 ```
  umi g page product/[id] --typescript --less
 ```
+
+打包生成dist文件夹
+```
+umi build
+```

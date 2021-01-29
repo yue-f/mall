@@ -7,7 +7,7 @@ import { history, Link, connect } from 'umi';
 import { Toast } from 'antd-mobile';
 import { editCart } from '@/services/editCart';
 
-interface CartAndBuyProps {
+interface CartAndBuyProps extends ConnectProps {
   product: ProductType;
   cart: CartModelState;
 }
